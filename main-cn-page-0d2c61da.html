@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 再访片刻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f3f0;
+            color: #2e2b28;
+            line-height: 1.7;
+            letter-spacing: 0.012em;
+        }
+
+        /* 深色头图 – 故事开场 */
+        .hero {
+            background: linear-gradient(145deg, #1f1b17 0%, #2d2722 50%, #1a1613 100%);
+            color: #e8e2d9;
+            padding: 4rem 2rem 3.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "✦";
+            position: absolute;
+            bottom: -0.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            color: #ba9f7a;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #c7b8a8;
+            border-top: 1px solid rgba(186, 159, 122, 0.25);
+            display: inline-block;
+            padding-top: 0.7rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.8rem 1.6rem 3.5rem;
+        }
+
+        .story-intro {
+            font-size: 1.12rem;
+            margin-bottom: 2rem;
+            text-indent: 2em;
+        }
+
+        .story-intro strong {
+            font-weight: 500;
+            color: #3e3832;
+        }
+
+        .story-intro a {
+            color: #b5853c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+            font-weight: 430;
+        }
+
+        .story-intro a:hover {
+            border-bottom-color: #b5853c;
+        }
+
+        /* 特点卡片列表 — 柔和边框 + 极淡底色 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.4rem 0 2.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #faf8f6;
+            border: 1px solid #e5ddd3;
+            border-radius: 24px;
+            padding: 1.4rem 1.2rem 1.2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 450;
+            color: #4f463e;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-item h3::before {
+            content: "·";
+            font-weight: 700;
+            color: #b5853c;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #5b544c;
+            line-height: 1.55;
+        }
+
+        /* 温和结尾 — 收藏与持续关注的提醒 */
+        .gentle-closing {
+            background: #f2efe9;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            margin: 2.6rem 0 0.8rem;
+            font-size: 1rem;
+            border-left: 4px solid #ba9f7a;
+        }
+
+        .gentle-closing p {
+            margin-bottom: 0.6rem;
+        }
+
+        .gentle-closing .bookmark-tip {
+            display: inline-block;
+            background: #fffcf7;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid #d6cbbe;
+            color: #4d4239;
+            margin-top: 0.2rem;
+        }
+
+        .gentle-closing a {
+            color: #b5853c;
+            text-decoration: none;
+            border-bottom: 1px solid #dccfc1;
+            transition: border 0.2s;
+        }
+
+        .gentle-closing a:hover {
+            border-bottom-color: #b5853c;
+        }
+
+        /* 小提示 / FAQ 摘要（极简） */
+        .faq-note {
+            margin: 2.4rem 0 1rem;
+            padding: 1.2rem 1.6rem;
+            background: #ffffffd9;
+            border-radius: 20px;
+            border: 1px solid #e3d9cf;
+        }
+
+        .faq-note summary {
+            font-weight: 450;
+            color: #4a4139;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 0.98rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-note summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-note summary::before {
+            content: "↺";
+            font-size: 1.2rem;
+            color: #b5853c;
+        }
+
+        .faq-note .faq-content {
+            padding-top: 0.8rem;
+            font-size: 0.92rem;
+            color: #5f564d;
+            border-top: 1px dashed #ddd2c5;
+            margin-top: 0.6rem;
+        }
+
+        .faq-note .faq-content a {
+            color: #b5853c;
+            border-bottom: 1px solid transparent;
+            text-decoration: none;
+        }
+
+        .faq-note .faq-content a:hover {
+            border-bottom-color: #b5853c;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d6cbbe, transparent);
+            margin: 1.6rem 0;
+        }
+
+        .footer-meta {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #948a80;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #e5ddd3;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 2rem 1rem 2.5rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                flex: 1 1 auto;
+            }
+
+            .gentle-closing {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 · 开场短句 -->
+<header class="hero">
+    <h1>又见面了。</h1>
+    <div class="tagline">有些地方，值得再停留一会儿</div>
+</header>
+
+<!-- 正文：浅色区 -->
+<main class="content">
+
+    <!-- 承接段落 · 再次访问 / 收藏 的情绪 -->
+    <p class="story-intro">
+        <strong>书签栏里总有那么几个名字</strong>，每次点开都像推开一扇熟悉的门。<br>
+        对许多喜欢四处翻找游戏话题的人来说，<a href="https://main-cn-i-game.com.cn">爱游戏</a> 就是这样一个去处。<br>
+        它不喧哗，只是安静地收集着关于「玩」的种种侧面——从老作品里的巧思，到新 demo 里的灵光一现。
+    </p>
+
+    <!-- 特点列表 · 从持续关注的角度 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>不赶时间</h3>
+            <p>文章节奏偏慢，不追热点，更在意玩法、叙事和手感里的细节。</p>
+        </div>
+        <div class="feature-item">
+            <h3>偶尔翻出冷门</h3>
+            <p>有些游戏你可能只在二手店见过封面，这里会有人认真聊它为什么有趣。</p>
+        </div>
+        <div class="feature-item">
+            <h3>没有弹窗</h3>
+            <p>干净阅读，不打断你的浏览节奏。适合深夜或周末慢慢看。</p>
+        </div>
+        <div class="feature-item">
+            <h3>持续更新</h3>
+            <p>虽然频率不高，但每篇都有编辑手记般的温度，像老朋友的定期来信。</p>
+        </div>
+    </div>
+
+    <!-- 温和的场景 · 收藏与关注的日常 -->
+    <div class="gentle-closing">
+        <p>你也许已经把它放在浏览器的收藏夹里了；如果还没有，不妨试试——下次想找点不一样的内容时，</p>
+        <p>打开 <a href="https://main-cn-i-game.com.cn">爱游戏</a>，翻翻最近的更新，或许会撞见一篇恰好戳中你的文章。</p>
+        <p>它不常出现在热搜里，但你总会记得回来。</p>
+        <span class="bookmark-tip">⌘ + D 收藏 · 或设为标签页</span>
+    </div>
+
+    <!-- FAQ 摘要 · 温和提示 -->
+    <details class="faq-note">
+        <summary>关于爱游戏，你可能想知道</summary>
+        <div class="faq-content">
+            <p>内容方向以游戏文化、设计赏析和个人回顾为主，不局限于新作。文章均来自同好撰稿，风格自由。<br>
+            如果遇到加载慢或页面异常，可以稍后重试，站点维护频率很低，多数时候很稳定。</p>
+            <p style="margin-top:0.6rem;">👉 直接前往 <a href="https://main-cn-i-game.com.cn">爱游戏</a> 浏览最新内容。</p>
+        </div>
+    </details>
+
+    <hr>
+
+    <!-- 极简脚注 · 呼应再次访问 -->
+    <div class="footer-meta">
+        不必刻意记住 · 想玩的时候自然会回来
+    </div>
+
+</main>
+</body>
+</html>
