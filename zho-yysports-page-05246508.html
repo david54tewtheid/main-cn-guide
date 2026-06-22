@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易游体育 · 专业运动生活指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #2e2a24;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fffffffc;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+                border-radius: 20px;
+            }
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 3rem;
+            border-left: 5px solid #b7a48c;
+            padding-left: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3b352e;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7a7064;
+            max-width: 600px;
+        }
+
+        /* 通用标题 */
+        h2 {
+            font-size: 1.55rem;
+            font-weight: 450;
+            margin-top: 2.4rem;
+            margin-bottom: 1.2rem;
+            color: #3f3931;
+            letter-spacing: 0.02em;
+            border-bottom: 1px solid #e5ddd3;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            margin: 1.6rem 0 0.6rem;
+            color: #4d463c;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+        }
+
+        /* 引用 / 提示框 */
+        .insight-box {
+            background: #f3efe8;
+            border-left: 4px solid #c3b19c;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            color: #3f3a32;
+        }
+
+        .insight-box strong {
+            color: #5a4f41;
+            font-weight: 550;
+        }
+
+        .tip-card {
+            background: #f7f2ea;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .tip-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 特点网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.4rem 0 0.6rem;
+        }
+
+        @media (max-width: 520px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            background: #faf7f2;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #ece5db;
+            transition: background 0.1s ease;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 520;
+            color: #4c4439;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item span {
+            font-size: 0.93rem;
+            color: #635b4f;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2rem 0 1rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e0d7cc;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 510;
+            color: #3f392f;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #5c5549;
+            font-size: 0.95rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid #d6cbbd;
+            margin-top: 0.15rem;
+            padding-top: 0.1rem;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin-top: 3rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e5ddd3;
+            font-size: 0.9rem;
+            color: #6b6256;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: baseline;
+        }
+
+        .footer-links a {
+            color: #5f5546;
+            text-decoration: none;
+            border-bottom: 1px solid #d1c5b5;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #8f806c;
+        }
+
+        .footer-links .sep {
+            color: #c7bbac;
+            user-select: none;
+        }
+
+        .credit-note {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #8f8476;
+        }
+
+        /* 内联链接样式 */
+        .inline-link {
+            color: #5f5546;
+            text-decoration: underline 1px solid #ccc1b0;
+            text-underline-offset: 3px;
+            transition: color 0.1s;
+        }
+
+        .inline-link:hover {
+            color: #3f3529;
+            text-decoration-color: #8f7a64;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>易游体育</h1>
+        <div class="sub">运动可以简单，也值得认真对待 —— 一份关于日常锻炼与运动习惯的整理</div>
+    </div>
+
+    <!-- 说明区：从主题内容展开 -->
+    <p>很多人开始运动，是因为想换一种生活方式。不管是早晨空出半小时跑一段路，还是下班后对着屏幕跟练一组拉伸，身体和情绪的反馈往往比想象中更直接。而让运动持续下去的关键，不是装备，也不是意志力，是一套接近自己节奏的方法。</p>
+
+    <p><a href="https://zho-yysports.com" class="inline-link">易游体育</a> 围绕这一思路，收集了不同运动场景下的基础信息：从入门动作的细节，到训练频率的安排，再到恢复和饮食的简单原则。内容不堆砌术语，也不制造焦虑，目的是让每个想动起来的人，都能找到适合自己的入口。</p>
+
+    <div class="insight-box">
+        <strong>一条实用的观察：</strong> 很多人在运动初期过度关注“强度”和“时长”，反而忽略了身体的适应信号。对多数人来说，持续输出 70% 的努力，比偶尔冲刺 100% 更有效，也更安全。
+    </div>
+
+    <!-- 优势区 (卡片化) -->
+    <h2>为什么可以留意这里</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <strong>场景化内容</strong>
+            <span>按居家、户外、办公室等不同环境整理，避免“看了也用不上”的尴尬。</span>
+        </div>
+        <div class="feature-item">
+            <strong>节奏优先</strong>
+            <span>不硬推“每天练”的教条，更关注周训练量的合理分布与恢复日设计。</span>
+        </div>
+        <div class="feature-item">
+            <strong>基础动作库</strong>
+            <span>俯卧撑、深蹲、划船、平板支撑等动作的常见错误与调整方式，都有拆解。</span>
+        </div>
+        <div class="feature-item">
+            <strong>装备与场地</strong>
+            <span>不鼓吹昂贵的器械，一双鞋、一张垫子、一条弹力带就能覆盖大部分需求。</span>
+        </div>
+    </div>
+
+    <!-- 额外的说明 / 场景段落 -->
+    <h3>运动习惯不必从零重构</h3>
+    <p>很多人以为自己缺乏自律，其实只是缺少一个足够轻的开始。比如每天 10 分钟的活动操，或者下班后步行两站地铁——这些微小的动作，往往比制定一套完整的周计划更容易变成习惯。<a href="https://zho-yysports.com" class="inline-link">易游体育</a> 里专门整理了“低门槛启动”相关内容，适合完全零基础或中断已久的人参考。</p>
+
+    <div class="tip-card">
+        <p><strong>一个常用的提示：</strong> 如果你不确定某个动作是否标准，可以试着用手机慢动作拍摄自己的侧面或正面，对比基础参考画面。很多时候，肉眼看不到的骨盆前倾或肩膀代偿，画面里会很清楚。</p>
+        <p style="margin-bottom:0;">这也是为什么在 <a href="https://zho-yysports.com" class="inline-link">易游体育</a> 的动作说明中，会重点标注“常见错误姿态”和“调整 cue”，而不是只放一张完成图。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2>常见疑问摘要</h2>
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="faq-q">Q: 我几乎不运动，从哪里开始比较安全？</div>
+            <div class="faq-a">建议从低冲击、自重为主的动作开始，比如靠墙静蹲、跪姿俯卧撑、仰卧臀桥。每次 15–20 分钟，隔天一次，持续两周后再考虑增加组数或动作难度。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 运动后肌肉酸痛多久算正常？</div>
+            <div class="faq-a">延迟性肌肉酸痛（DOMS）通常在运动后 24–48 小时达到高峰，持续 3–5 天。如果疼痛超过一周或伴随关节活动受限，建议暂停并咨询专业人士。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 需要吃蛋白粉或者补剂吗？</div>
+            <div class="faq-a">对于非高强度/大训练量人群，日常饮食中的蛋白质（鸡蛋、瘦肉、豆制品、牛奶）基本足够。补剂不是必需品，优先保证三餐结构和饮水更实际。</div>
+        </div>
+    </div>
+    <p style="font-size:0.9rem; color:#776e60; margin-top: -0.2rem;">更多常见问题与详细回答，可以在 <a href="https://zho-yysports.com" class="inline-link">易游体育</a> 中找到对应的专题。</p>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <span>易游体育 · 运动生活</span>
+        <span class="sep">/</span>
+        <a href="https://zho-yysports.com">易游体育</a>
+        <span class="sep">/</span>
+        <span>内容仅供参考，不作为医疗或训练建议</span>
+    </div>
+    <div class="credit-note">
+        页面基于公开运动资料与常见经验整理，如有特殊健康状况请遵医嘱。
+    </div>
+
+</div>
+</body>
+</html>
